@@ -5,20 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+BakeShop.destroy_all 
+Good.destroy_all 
 
-goods = []
+
+bake_shops = []
+
+10.times do 
+    bake_shops << BakeShop.create(name: Faker::Games::Pokemon.move + " Bake Shop",
+                  city: Faker::Games::DnD.city,
+                  phone_number: Faker::PhoneNumber.cell_phone,
+    )
+end
+
+
 50.times do 
-    goods << Good.create(name: Faker::Dessert.variety,
+     Good.create(name: Faker::Dessert.variety,
                 price: rand(1.00...100.00),
-                calories: rand(50...500)
+                calories: rand(50...500),
+                bake_shop_id: bake_shops.sample.id
                 )   
 end
 
-10.times do 
-    BakeShop.create(name: Faker::Games::Pokemon.move + " Bake Shop",
-                  city: Faker::Games::DnD.city,
-                  phone_number: Faker::PhoneNumber.cell_phone,
-                  goods: goods.sample(5)
-    )
-end
    
