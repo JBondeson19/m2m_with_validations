@@ -1,0 +1,4 @@
+class BakeShopsController < ApplicationController
+
+    
+end
