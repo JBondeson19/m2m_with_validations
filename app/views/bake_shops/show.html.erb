@@ -1,0 +1,21 @@
+<h1>
+    <%= @bake_shop.name %>
+</h1>
+<h3>
+    Located at: <%= @bake_shop.city %>
+<h3> 
+<h3>
+    Contact us! <%= @bake_shop.phone_number %>
+<h/3>
+<br>
+<br>
+<br>
+    <%= button_to "Edit the Shop", edit_bake_shop_path, method: "get" %>
+<br>
+<br>
+    <%= button_to "Delete the Shop", bake_shop_path(@bake_shop), method: "delete" %>
+<br>
+<br>
+<br>
+    <%= link_to "Back to All Bake Shops", bake_shops_path %>
+
