@@ -1,0 +1,33 @@
+<%= form_for @good do |f| %>  
+    <% if @good.errors.any? %>
+        <div id="error_explanation">
+        <h2>There were some errors:</h2>
+        <ul>
+            <% @good.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+    
+    <div class="field <%= ' field_with_errors' if @good.errors[:name].any? %>">
+        <%= f.label :name , "Name : " %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div class="field <%= ' field_with_errors' if @good.errors[:price].any? %>">
+        <%= f.label :price , "Price : " %>
+        <%= f.text_field :price %>
+    </div>
+
+    <div>Price : <%= f.number_field :price %></div>
+    <div>Calories : <%= f.number_field :calories %></div>
+
+    <% 
+        collection_bake_shop = BakeShop.all.to_a
+        collection_bake_shop.unshift(BakeShop.new(id: nil, name: "Choose a bake shop"))
+    %>
+    <div>Bake Shop : <%= f.collection_select :bake_shop_id, collection_bake_shop, :id, :name,{:selected => "Choose a bake shop"}  %></div>
+
+    <div><%= f.submit %></div>
+<% end %>

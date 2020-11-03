@@ -1,2 +1,9 @@
 <h1>Goods' List</h1>
 
+<div>
+    <%= button_to "New", new_good_path, method: "get" %>
+</div>
+
+<% @goods.each do |good| %>
+    <div><%= link_to good.name, good_path(good) %></div>
+<% end %>

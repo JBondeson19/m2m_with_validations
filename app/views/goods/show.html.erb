@@ -1,0 +1,9 @@
+<h2><%= @good.name %></h2>
+<div>Price : $ <%= @good.price.round(2) %></div>
+<div>Calories : <%= @good.calories %></div>
+<div>Bake Shop : <%= link_to @good.bake_shop.name, bake_shop_path(@good.bake_shop) %></div>
+<div style:"">
+    <%= button_to "Edit", edit_good_path(@good), method: "get" %>
+    <%= button_to "Delete", good_path(@good), method: "delete" %>
+    <%= button_to "Return to homepage", goods_path, method: "get" %>
+</div>
