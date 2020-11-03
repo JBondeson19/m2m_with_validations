@@ -2,6 +2,8 @@
 
 <div>
     <%= button_to "New", new_good_path, method: "get" %>
+    <%= button_to "Order by Id", goods_path, method: "get" %>
+    <%= button_to "Order By Name", goods_path, method: "get", params: {order: "name"} %>
 </div>
 
 <ul>

@@ -1,6 +1,6 @@
 class GoodsController < ApplicationController
   def index
-    @goods = Good.all
+    @goods = Good.order(params[:order])
   end
 
   def show
