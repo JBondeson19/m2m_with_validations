@@ -1,15 +1,6 @@
+<%= render partial: "shared/error_list", locals: {new_object: @good} %>
+
 <%= form_for @good do |f| %>  
-    <% if @good.errors.any? %>
-        <div id="error_explanation">
-        <h2>There were some errors:</h2>
-        <ul>
-            <% @good.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-            <% end %>
-        </ul>
-        </div>
-    <% end %>
-    
     <div class="field <%= ' field_with_errors' if @good.errors[:name].any? %>">
         <%= f.label :name , "Name : " %>
         <%= f.text_field :name %>
