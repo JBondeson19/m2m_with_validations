@@ -1,0 +1,7 @@
+<h1>Bake Shops!</h1>
+
+<ul>
+<% @bake_shops.each do |bake_shop| %>
+    <li><%= link_to bake_shop.name, bake_shop_path(bake_shop) %></li>
+<% end %>
+</ul>
