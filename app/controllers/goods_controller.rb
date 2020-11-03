@@ -12,10 +12,10 @@ class GoodsController < ApplicationController
   end
 
   def create
-    good = Good.new(good_params)
+    @good = Good.new(good_params)
 
-    if good.save
-      redirect_to good_path(good)
+    if @good.save
+      redirect_to good_path(@good)
     else
       render :new
     end
@@ -26,10 +26,10 @@ class GoodsController < ApplicationController
   end
 
   def update
-    good = Good.find(params[:id])
+    @good = Good.find(params[:id])
 
-    if good.update(good_params)
-      redirect_to good_path(good)
+    if @good.update(good_params)
+      redirect_to good_path(@good)
     else
       render :edit
     end

@@ -4,6 +4,8 @@
     <%= button_to "New", new_good_path, method: "get" %>
 </div>
 
-<% @goods.each do |good| %>
-    <div><%= link_to good.name, good_path(good) %></div>
-<% end %>
+<ul>
+    <% @goods.each do |good| %>
+        <li><%= link_to good.name, good_path(good) %></li>
+    <% end %>
+</ul>
