@@ -8,12 +8,12 @@
 
     <div class="field <%= ' field_with_errors' if @good.errors[:price].any? %>">
         <%= f.label :price , "Price : " %>
-        <%= f.text_field :price %>
+        <%= f.number_field :price %>
     </div>
 
     <div class="field <%= ' field_with_errors' if @good.errors[:calories].any? %>">
         <%= f.label :calories , "Calories : " %>
-        <%= f.text_field :calories %>
+        <%= f.number_field :calories %>
     </div>
 
     <div class="field <%= ' field_with_errors' if @good.errors[:bake_shop_id].any? %>">
@@ -22,7 +22,7 @@
             collection_bake_shop = BakeShop.all.to_a
             collection_bake_shop.unshift(BakeShop.new(id: nil, name: "No bake shop"))
         %>
-        <%= f.collection_select :bake_shop_id, collection_bake_shop, :id, :name,{:selected => "Choose a bake shop"}  %></div>
+        <%= f.collection_select :bake_shop_id, collection_bake_shop, :id, :name, {:selected => @good.id ? @good.bake_shop_id : nil}  %></div>
     </div>
 
     <div><%= f.submit %></div>
