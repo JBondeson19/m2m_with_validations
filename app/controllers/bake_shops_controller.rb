@@ -14,16 +14,25 @@ class BakeShopsController < ApplicationController
     end
 
     def create
-        bake_shop = BakeShop.create(get_params)
-        redirect_to bake_shop_path(bake_shop)
+        bake_shop = BakeShop.new(get_params)
+        if bake_shop.valid?
+            bake_shop.save
+             redirect_to bake_shop_path(bake_shop)
+
+        else  
+            render :new 
+        end
     end
 
     def edit 
     end
 
     def update
-        @bake_shop.update(get_params)
+       if @bake_shop.update(get_params)
         redirect_to bake_shop_path(@bake_shop)
+       else 
+        render :edit
+       end
     end
 
 
