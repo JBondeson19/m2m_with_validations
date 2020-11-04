@@ -1,15 +1,32 @@
 <h2><%= @good.name %></h2>
-<div>Price : $ <%= @good.price.round(2) %></div>
-<div>Calories : <%= @good.calories %></div>
-<div>Bake Shop : 
-    <% if @good.bake_shop %>
-        <%= link_to @good.bake_shop.name, bake_shop_path(@good.bake_shop) %>
-    <% else %>
-        don't have a bake shop
-    <% end %>
+<div class="form-group row">
+    <label class="col-sm-1 col-form-label">Price</label>
+    <div class="col-sm-4">
+        <input type="text" readonly class="form-control-plaintext" value="$<%= @good.price.round(2) %>">
+    </div>
 </div>
-<div style:"">
-    <%= button_to "Edit", edit_good_path(@good), method: "get" %>
-    <%= button_to "Delete", good_path(@good), method: "delete" %>
-    <%= button_to "Return to homepage", goods_path, method: "get" %>
+
+<div class="form-group row">
+    <label class="col-sm-1 col-form-label">Calories</label>
+    <div class="col-sm-4">
+        <input type="text" readonly class="form-control-plaintext" value="$<%= @good.price.round(2) %>">
+    </div>
+</div>
+
+
+<div class="form-group row">
+    <label class="col-sm-1 col-form-label">Calories</label>
+    <div class="col-sm-4">
+        <% if @good.bake_shop %>
+            <%= link_to @good.bake_shop.name, bake_shop_path(@good.bake_shop), class:"form-control-plaintext" %>
+        <% else %>
+            don't have a bake shop
+        <% end %>
+    </div>
+</div>
+
+<div class="btn-group">
+    <%= button_to "Edit", edit_good_path(@good), method: "get", class: "btn btn-primary" %>
+    <%= button_to "Delete", good_path(@good), method: "delete", class: "btn btn-danger" %>
+    <%= button_to "Return to homepage", goods_path, method: "get", class: "btn btn-light" %>
 </div>

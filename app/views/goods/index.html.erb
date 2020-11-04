@@ -12,15 +12,7 @@
     <div>
     <%= button_to "Order By Name", goods_path, method: "get", params: {order: "name"}, class: "btn btn-primary" %>
     </div>
-<!--
-<ul>
-    <% @goods.each do |good| %>
-        <li><%= link_to good.name, good_path(good) %></li>
-    <% end %>
-</ul>
--->
 </div>
-
 <br>
 <div class="row">
 
@@ -30,6 +22,10 @@
       <th scope="col">Name</th>
       <th scope="col">Price</th>
       <th scope="col">Calories</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+
     </tr>
   </thead>
   <tbody>
@@ -38,6 +34,9 @@
       <td><%= good.name %></td>
       <td><%= good.price %></td>
       <td><%= good.calories %></td>
+      <td><%= button_to "show", good_path(good), method: "get", class: "btn btn-light" %></td>
+      <td><%= button_to "edit", edit_good_path(good), method: "get", class: "btn btn-primary" %></td>
+      <td><%= button_to "delete", good_path(good), method: "delete", class: "btn btn-danger" %></td>
     </tr>
     <% end %>
   </tbody>
