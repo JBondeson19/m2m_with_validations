@@ -1,4 +1,8 @@
-
+<% if @bake_shop.errors.any? %>
+    <% @bake_shop.errors.full_messages.each do |message| %>
+    <%= message %>
+    <% end %>
+<% end %>
 
 <%= form_for @bake_shop do |f| %>
 <%= f.label "Name:" %>
