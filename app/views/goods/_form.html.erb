@@ -1,9 +1,9 @@
 <%= render partial: "shared/error_list", locals: {new_object: @good} %>
 
 <%= form_for @good do |f| %>  
-    <div class="field <%= ' field_with_errors' if @good.errors[:name].any? %>">
+    <div class="form-group field <%= ' field_with_errors' if @good.errors[:name].any? %>">
         <%= f.label :name , "Name : " %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: "form-control" %>
     </div>
 
     <div class="field <%= ' field_with_errors' if @good.errors[:price].any? %>">
